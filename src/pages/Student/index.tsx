@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { get } from 'lodash';
 import axios from '../../services/axios';
-import history from '../../services/history';
 import Loading from '../../components/Loading';
 import { toast } from 'react-toastify';
 import { isEmail, isNumeric } from 'validator';
@@ -12,6 +11,7 @@ import { isValidName } from '../../validators'
 import { useDispatch } from 'react-redux';
 import { loginFailure } from '../../store/slices/auth';
 import { FaEdit, FaUserCircle } from 'react-icons/fa';
+
 
 export default function Student({match}) {
   const [firstName, setFirstName] = useState('');

@@ -4,11 +4,15 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginFailure } from '../../store/slices/auth'
 import { toast } from 'react-toastify';
+import history from '../../services/history';
+import type { RootState } from '../../store';
+
+
 
 export default function Header() {
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const isLoggedIn = useSelector((state:RootState) => state.auth.isLoggedIn);
   const dispatch = useDispatch();
-  function handleLoginButton(event) {
+  function handleLoginButton(event:React.MouseEvent<HTMLAnchorElement>) {
     event.preventDefault();
     if (!isLoggedIn){
       history.push('/login');
